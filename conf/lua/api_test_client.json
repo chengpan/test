@@ -1,0 +1,36 @@
+[
+	{
+		"skip": false,
+		"uri": "http://testm.idsuipai.com/api/lua/request_auth_code.lua",
+		"query": {
+			"contact_telephone": "18576632036"
+		},
+		"method": "POST",
+		"repeat": 1
+	},
+	{
+		"skip": false,
+		"uri": "http://testm.idsuipai.com/api/lua/referer_apply.lua",
+		"method": "POST",
+		"body":{
+			"referer_name": "@rand_str(6)",
+			"contact_person": "@rand_str(6)",
+			"contact_email": "@rand_email()",
+			"contact_telephone": "@rand_phone()",
+			"auth_code": "a289fc"
+		},
+		"repeat": 1
+	},	
+	{
+		"skip": true,
+		"uri": "http://testm.idsuipai.com/api/lua/get_applications.lua",
+		"query": {
+			"apply_status": "@rand_num(0,1)",
+			"m": "@rand_num(0,1)",
+			"n": "@rand_num(1,3)"
+		},
+		"method": "GET",
+		"body": "nil",
+		"repeat": 10
+	}	
+]
