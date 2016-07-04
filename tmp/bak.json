@@ -1,0 +1,93 @@
+[
+	{
+		"skip": false,
+		"desc": "申请发送验证码",
+		"uri": "http://testm.idsuipai.com/api/lua/request_auth_code.lua",
+		"query": {
+			"contact_telephone": "18576632036"
+		},
+		"method": "POST",
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "提交申请信息",
+		"uri": "http://testm.idsuipai.com/api/lua/referer_apply.lua",
+		"method": "POST",
+		"body":{
+			"referer_name": "@rand_str(6)",
+			"contact_person": "@rand_str(6)",
+			"contact_email": "chengpandyx@126.com",
+			"contact_telephone": "18576632036",
+			"auth_code": "774a1d"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "获取申请者信息",
+		"uri": "http://testm.idsuipai.com/api/lua/get_applications.lua",
+		"method": "GET",
+		"query": {
+			"apply_status": "@rand_num(0,2)",
+			"m": "@rand_num(0,1)",
+			"n": "@rand_num(1,10)"
+		},
+		"repeat": 10
+	},
+	{
+		"skip": true,
+		"desc": "处理申请者信息",
+		"uri": "http://testm.idsuipai.com/api/lua/update_applications.lua",
+		"method": "POST",
+		"body":{
+			"action": "update",
+			"contact_email": "chengpandyx@126.com",
+			"apply_status": 1,
+			"admin_remarks": "@rand_str(16)",
+			"contact_person": "frank"
+		},
+		"repeat": 3
+	},
+	{
+		"skip": true,
+		"desc": "处理申请者信息",
+		"uri": "http://testm.idsuipai.com/api/lua/update_applications.lua",
+		"method": "POST",
+		"body":{
+			"action": "update",
+			"contact_email": "chengpandyx@126.com",
+			"apply_status": 1,
+			"admin_remarks": "呵呵你个傻逼",
+			"contact_person": "frank"
+		},
+		"repeat": 3
+	},
+	{
+		"skip": true,
+		"desc": "处理申请者信息",
+		"uri": "http://testm.idsuipai.com/api/lua/update_applications.lua",
+		"method": "POST",
+		"body":{
+			"action": "delete",
+			"contact_email": "chengpandyx@126.com"
+		},
+		"repeat": 1
+	},	
+	{
+		"skip": true,
+		"desc": "完善信息",
+		"uri": "http://testm.idsuipai.com/api/lua/complete_referer_info.lua",
+		"method": "POST",
+		"body":{
+			"referer_name": "6dc16d",
+			"referer_passwd": "098f6bcd4621d373cade4e832627b4f6",
+			"contact_person": "cedf8d",	
+			"contact_email": "chengpandyx@126.com",
+			"contact_telephone": "18576632036",
+			"pay_type": 1,
+			"pay_account": "18576632036"
+		},
+		"repeat": 1
+	}	
+]

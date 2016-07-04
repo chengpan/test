@@ -1,0 +1,109 @@
+[
+	{
+		"skip": true,
+		"desc": "添加目录",
+		"uri": "http://testm.idsuipai.com/api/lua/add_category.lua",
+		"method": "POST",
+		"body":{
+			"category_name": "重要新闻",
+			"category_creater": "程畔"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "删除",
+		"uri": "http://testm.idsuipai.com/api/lua/del_category.lua",
+		"method": "POST",
+		"body":{
+			"category_name": "5db53fd3"
+		},
+		"repeat": 2
+	},	
+	{
+		"skip": true,
+		"desc": "移动目录位置",
+		"uri": "http://testm.idsuipai.com/api/lua/move_position.lua",
+		"method": "POST",
+		"body":{
+			"category_name": "e6f5bd51",
+			"direction": "downward"
+		},
+		"repeat": 2
+	},
+	{
+		"skip": true,
+		"desc": "改变目录状态",
+		"uri": "http://testm.idsuipai.com/api/lua/change_category_status.lua",
+		"method": "POST",
+		"body":{
+			"category_name": "3ccb7329",
+			"visible_status": 0
+		},
+		"repeat": 2
+	},	
+	{
+		"skip": true,
+		"desc": "增加文章",
+		"uri": "http://testm.idsuipai.com/api/lua/add_article.lua",
+		"method": "POST",
+		"body":{
+			"category_id": 10032,
+			"article_title": "@rand_str(4)",
+			"article_author": "blackavengers",
+			"cover_url": "www.nihao.com",
+			"ontop_status": "@rand_num(0,1)",
+			"recommend_status": "@rand_num(0,1)",
+			"article_content": "@rand_str(24)"
+		},
+		"repeat": 10
+	},
+	{
+		"skip": true,
+		"desc": "获取所有目录概况",
+		"uri": "http://testm.idsuipai.com/api/lua/get_categories_info.lua",
+		"method": "POST",
+		"body":{
+			"m": 0,
+			"n": 20
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "获取（某个目录下）所有文章的概况",
+		"uri": "http://testm.idsuipai.com/api/lua/get_articles_info.lua",
+		"method": "POST",
+		"body":{
+			"recommend_status": 1,
+			"category_id": 10031,
+			"m": 0,
+			"n": 2
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "删除文章",
+		"uri": "http://testm.idsuipai.com/api/lua/del_article.lua",
+		"method": "POST",
+		"body":{
+			"article_id": 10012
+		},
+		"repeat": 3
+	},
+	{
+		"skip": false,
+		"desc": "编辑文章",
+		"uri": "http://testm.idsuipai.com/api/lua/edit_article.lua",
+		"method": "POST",
+		"body":{
+			"article_id": 10017,
+			"ontop_status": 0,
+			"recommend_status": 1,
+			"article_content": "呵呵?https??GKK"
+		},
+		"repeat": 1
+	}		
+	
+]

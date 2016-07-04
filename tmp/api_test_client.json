@@ -1,0 +1,358 @@
+[
+	{
+		"skip": true,
+		"desc": "test",
+		"uri": "http://testapi2.idsuipai.com/lua/app/test.lua",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": "0",
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},
+		"method": "POST",
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "获取价格",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_price.lua",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},
+		"method": "POST",
+		"body":{
+			"referer_token": "qwertyuiopasdfgh"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "获取展示商品信息",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_goods.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "分页查询某一目录下的商品",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_category_goods.lua",
+		"method": "POST",
+		"body": {
+			"category_name": "各类证件",
+			"start_index": 1,
+			"entries": 20
+		},		
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},
+		"repeat": 1
+	},	
+	{
+		"skip": true,
+		"desc": "添加用户地址",
+		"uri": "http://testapi2.idsuipai.com/lua/app/add_addr.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},		
+		"body": {
+			"consignee_name": "frank",
+			"consignee_telephone": "18576632036",
+			"province_code": "440000",
+			"city_code": "440300",
+			"county_code": "440305",
+			"addr_detail": "科研路9号比克科技大厦2605"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "查询地址",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_addr.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},		
+		"repeat": 1
+	},	
+	{
+		"skip": true,
+		"desc": "提交电子订单",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_submit.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},		
+		"body": {
+			"referer_token": "xx",
+			"WeChat_share": "yes",
+			"item_array": [
+			{
+				"item_type": "id_photo_elec",
+				"goods_id": 10000,
+				"photo_height": 45,
+				"photo_width": 45,
+				"bg_color": "blue",
+				"img_json": {
+					"original": "tmp/original1.jpg",
+					"processed": "tmp/processed1.jpg",
+					"typeset": "tmp/typeset1.jpg"
+				}	
+			}
+			]
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "提交纸质订单",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_submit.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},				
+		"body": {
+			"WeChat_share": "yes",
+			"referer_token": "xx",
+			"addr_id": 10007,
+			"urgent_service": "yes",
+			"item_array": [
+			{
+				"item_type": "id_photo_paper",
+				"item_cnt": 2,
+				"goods_id": 10000,
+				"photo_height": 45,
+				"photo_width": 45,
+				"bg_color": "blue",				
+				"img_json": {"original": "tmp/original.jpg","processed": "tmp/processed.png","typeset": "tmp/typeset.jpg"}	
+			},
+			{
+				"item_type": "print_photo",
+				"item_cnt": 6,
+				"img_json": [{"img": "tmp/aa.jpg", "cnt": 1}, {"img": "tmp/bb.jpg", "cnt": 2},{"img": "tmp/cc.jpg", "cnt": 3}]
+			}
+			]
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "查询所有订单",	
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_order.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},		
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "查询单个订单",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_order.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},			
+		"body": {
+			"order_id": 100001
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "用户取消订单",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_cancel.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},			
+		"body": {
+			"order_id": 10001
+		},
+		"repeat": 1
+	},	
+	{
+		"skip": true,
+		"desc": "查询快递状态",
+		"uri": "http://testapi2.idsuipai.com/lua/app/express_query.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},			
+		"body": {
+			"order_id": 10013
+		},
+		"repeat": 1
+	},		
+	{
+		"skip": true,
+		"desc": "app文件上传请求",
+		"uri": "http://testapi2.idsuipai.com/lua/app/oss_upload_request.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},			
+		"body": {
+			"file_suffix": "jpg",
+			"item_type": "id_photo_elec",
+			"item_sub_type": "original"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "文件上传回调",
+		"uri": "http://testapi2.idsuipai.com/lua/open/oss_callback.lua",
+		"method": "POST",		
+		"body": {"object": "tmp/id_photo_elec_original_0ec1571da2302544e00e8e1422982aa9.jpg"},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "发起订单支付",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_pay.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},			
+		"body": {
+			"order_id": 10001,
+			"pay_type": 0
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "提交反馈",
+		"uri": "http://testapi2.idsuipai.com/lua/app/feedback.lua",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},			
+		"body": {
+			"telephone": "18576632036",
+			"remarks": "@rand_str(324)"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "管理员登录",
+		"uri": "http://testapi2.idsuipai.com/lua/open/admin_login.lua",
+		"method": "POST",			
+		"body": {
+			"account_name": "ppbb",
+			"account_pwd": "6D101F68A7AD23E69BD9CEBD1EAC2643"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": false,
+		"desc": "测试auth_token",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/test.lua",
+		"method": "POST",	
+		"headers":{
+			"auth_token": "ac4ce06f7303ad056f6fd904e9afb7ab"
+		},		
+		"body": {
+			"account_name": "ppbb",
+			"account_pwd": "6D101F68A7AD23E69BD9CEBD1EAC2643"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "获取订单",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_order.lua",
+		"method": "POST",	
+		"headers":{
+			"auth_token": "ac4ce06f7303ad056f6fd904e9afb7ab"
+		},		
+		"body": {
+			"item_type": "id_photo_paper",
+			"urgent_service": "yes",
+			"platform": "ios",
+			"from_timestamp": "2016-05-06 00:00:00",
+			"to_timestamp": "2016-07-01 23:59:59",
+			"admin_order_status": "unpaid",
+			"start_index": 1,
+			"entries": 20
+		},
+		"repeat": 1
+	},
+	{
+		"skip": false,
+		"desc": "获取订单",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/order_fuzz_query.lua",
+		"method": "POST",	
+		"headers":{
+			"auth_token": "ac4ce06f7303ad056f6fd904e9afb7ab"
+		},		
+		"body": {
+			"query_param": "frank",
+			"start_index": 1,
+			"entries": 20
+		},
+		"repeat": 1
+	}	
+]

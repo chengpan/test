@@ -1,0 +1,20 @@
+{
+	"referer_token": "abcdefg",
+	"order_array":[
+		{
+		"order_id": 16617,
+		"settle_status": 2,
+		"admin_remarks": "I love you"
+		},
+		{
+		"order_id": 16580,
+		"settle_status": 2,
+		"admin_remarks": "I hate you"
+		},
+		{
+		"order_id": 16505,
+		"settle_status": 2,
+		"admin_remarks": "I don't care"
+		}		
+	]
+}

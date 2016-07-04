@@ -1,0 +1,282 @@
+[
+	{
+		"skip": true,
+		"desc": "请求短信验证码",
+		"uri": "http://testapi2.idsuipai.com/lua_api/main/request_auth_code.lua",
+		"method": "POST",
+		"query": {
+			"phone_number": "18576632036"
+		},		
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "注册/添加用户",
+		"uri": "http://testapi2.idsuipai.com/lua_api/user/user_add.lua",
+		"method": "POST",
+		"body":{
+			"user_telephone": "18576632036",
+			"user_passwd": "31409edcc223db7daa72c54ee0107b9f",
+			"platform": "testphone1",
+			"auth_code": "b414c8"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "用户登录",
+		"uri": "http://testapi2.idsuipai.com/lua_api/user/user_login.lua",
+		"method": "POST",
+		"body":{
+			"user_telephone": "18576632036",
+			"user_passwd": "31409edcc223db7daa72c54ee0107b9f",
+			"platform": "ios_pc"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "app获取用户信息",
+		"uri": "http://testapi2.idsuipai.com/lua_api/user/app_get_user_info.lua",
+		"method": "POST",
+		"body":{
+			"app_token": "dd189fb961eced13c5d412c5a7d07eea"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "app编辑用户信息",
+		"uri": "http://testapi2.idsuipai.com/lua_api/user/app_edit_user_info.lua",
+		"method": "POST",
+		"body":{
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"user_name": "无敌大萌萌",
+			"user_email": "chengpandyx@126.com"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "改变用户密码",
+		"uri": "http://testapi2.idsuipai.com/lua_api/user/change_user_passwd.lua",
+		"method": "POST",
+		"body":{
+			"app_token": "48d6d84d30a6c3b0d487cd78e52c7516",
+			"old_user_passwd": "31409edcc223db7bcc72c54ee0107b9f",
+			"new_user_passwd": "qqqqqqqqqqqqqqqqqqqqwwwwwwwwwwwe"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "忘记用户密码，通过短信验证码找回",
+		"uri": "http://testapi2.idsuipai.com/lua_api/user/forget_user_passwd.lua",
+		"method": "POST",
+		"body":{
+			"auth_code": "b9967f",
+			"user_telephone": "18576632036",
+			"user_passwd": "gggggggggggggggggggggggggggggggg"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "添加收货地址",
+		"uri": "http://testapi2.idsuipai.com/lua_api/addr/add_addr.lua",
+		"method": "POST",
+		"body":{
+			"user_id": "10000",
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"default_addr": 1,
+			"consignee_name": "cp",
+			"consignee_telephone": "13530394363",
+			"province_code": "440000",
+			"city_code": "440300",
+			"county_code": "440305",
+			"addr_detail": "科研路9号比克科技大厦2696"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "编辑收货地址",
+		"uri": "http://testapi2.idsuipai.com/lua_api/addr/edit_addr.lua",
+		"method": "POST",
+		"body":{
+			"addr_id": "10009",
+			"default_addr": 1,
+			"consignee_name": "cp",
+			"consignee_telephone": "13530394399",
+			"province_code": "440000",
+			"city_code": "440300",
+			"county_code": "440305",
+			"addr_detail": "科研路9号比克科技大厦好的"
+		},
+		"repeat": 1
+	},	
+	{
+		"skip": true,
+		"desc": "删除收货地址",
+		"uri": "http://testapi2.idsuipai.com/lua_api/addr/del_addr.lua",
+		"method": "POST",
+		"body":{
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"addr_id": 10008
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "获取收货地址",
+		"uri": "http://testapi2.idsuipai.com/lua_api/addr/get_addr.lua",
+		"method": "POST",
+		"body":{
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"default_addr": 1
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "获取商品价格",
+		"uri": "http://testapi2.idsuipai.com/lua_api/main/get_price.lua",
+		"method": "POST",
+		"repeat": 1
+	},	
+	{
+		"skip": true,
+		"desc": "加入单个商品至购物车",
+		"uri": "http://testapi2.idsuipai.com/lua_api/item/add_item.lua",
+		"method": "POST",
+		"body":{
+			"user_id": 10000,
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"item_count": 1,
+			"item_type": 1,
+			"item_subtype": 1,
+			"send_type": 1,
+			"need_email": 1,
+			"email_addr": "chengpabdyx@126.com",
+			"photo_locations": {
+				"original_img": "@rand_str(16)",
+				"processed_img": "@rand_str(13)",
+				"typeset_img": "@rand_str(13)"
+			}			
+		},		
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "加入单个商品至购物车",
+		"uri": "http://testapi2.idsuipai.com/lua_api/item/add_item.lua",
+		"method": "POST",
+		"body":{
+			"user_id": 10000,
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"item_count": 1,
+			"item_type": 2,
+			"receipt_type": 1,
+			"send_type": 2,
+			"province_code": "440000",
+			"city_code": "440300",			
+			"need_email": 1,
+			"email_addr": "chengpabdyx@126.com",
+			"photo_locations": {
+				"typeset_img": "@rand_str(16)"
+			}
+		},		
+		"repeat": 2
+	},	
+	{
+		"skip": true,
+		"desc": "加入单个商品至购物车",
+		"uri": "http://testapi2.idsuipai.com/lua_api/item/add_item.lua",
+		"method": "POST",
+		"body":{
+			"user_id": 10000,
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"item_count": 1,
+			"item_type": 1,
+			"item_subtype": 1,
+			"send_type": 1,
+			"need_email": 1,
+			"email_addr": "chengpabdyx@126.com",
+			"photo_locations": {
+				"original_img": "/root/orig_dir",
+				"processed_img": "/root/proc_dir",
+				"typeset_img": "/root/typeset_dir"
+			}			
+		},		
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "修改已添加至购物车的商品的数量(包含删除功能)",
+		"uri": "http://testapi2.idsuipai.com/lua_api/item/change_item_count.lua",
+		"method": "POST",
+		"body":{
+			"item_id": 10010,
+			"item_count": 0		
+		},		
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "获取购物车的所有商品",
+		"uri": "http://testapi2.idsuipai.com/lua_api/item/get_user_items.lua",
+		"method": "POST",
+		"body":{
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "提交订单",
+		"uri": "http://testapi2.idsuipai.com/lua_api/order/submit_order.lua",
+		"method": "POST",
+		"body":{
+			"user_id": 10000,
+			"addr_id": 10010,
+			"urgent_status": 1,
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"item_array": [10009, 10011, 10012],
+			"order_src": 3,
+			"referer_token": "abcdefg"
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "查看订单信息",
+		"uri": "http://testapi2.idsuipai.com/lua_api/order/get_order_info.lua",
+		"method": "POST",
+		"body":{
+			"order_id": 10002
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "取消订单",
+		"uri": "http://testapi2.idsuipai.com/lua_api/order/cancel_order.lua",
+		"method": "POST",
+		"body":{
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"order_id": 10002
+		},
+		"repeat": 1
+	},
+	{
+		"skip": true,
+		"desc": "上传文件",
+		"uri": "http://testapi2.idsuipai.com/lua_api/file/file_upload.lua",
+		"method": "POST",
+		"body":{
+			"app_token": "3b54d84b52aa1034f47e01daee0560c0",
+			"order_id": 10002
+		},
+		"repeat": 1
+	}
+]
