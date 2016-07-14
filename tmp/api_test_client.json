@@ -2,7 +2,7 @@
 	{
 		"skip": true,
 		"desc": "test",
-		"uri": "http://testapi2.idsuipai.com/lua/app/test.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/test",
 		"headers":{
 			"appver": "1.0.1",
 			"noncestr": "1234567890123456",
@@ -16,7 +16,7 @@
 	{
 		"skip": true,
 		"desc": "获取价格",
-		"uri": "http://testapi2.idsuipai.com/lua/app/get_price.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_price",
 		"headers":{
 			"appver": "1.0.1",
 			"noncestr": "1234567890123456",
@@ -33,7 +33,7 @@
 	{
 		"skip": true,
 		"desc": "获取展示商品信息",
-		"uri": "http://testapi2.idsuipai.com/lua/app/get_goods.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_goods",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -47,12 +47,11 @@
 	{
 		"skip": true,
 		"desc": "分页查询某一目录下的商品",
-		"uri": "http://testapi2.idsuipai.com/lua/app/get_category_goods.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_category_goods",
 		"method": "POST",
 		"body": {
-			"category_name": "各类证件",
-			"start_index": 1,
-			"entries": 20
+			"category_name": "各国证件",
+			"last_goods_id": 1
 		},		
 		"headers":{
 			"appver": "1.0.1",
@@ -66,7 +65,7 @@
 	{
 		"skip": true,
 		"desc": "添加用户地址",
-		"uri": "http://testapi2.idsuipai.com/lua/app/add_addr.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/add_addr",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -81,14 +80,14 @@
 			"province_code": "440000",
 			"city_code": "440300",
 			"county_code": "440305",
-			"addr_detail": "科研路9号比克科技大厦2605"
+			"addr_detail": "科研路9号比克科技大厦2607"
 		},
 		"repeat": 1
 	},
 	{
 		"skip": true,
-		"desc": "查询地址",
-		"uri": "http://testapi2.idsuipai.com/lua/app/get_addr.lua",
+		"desc": "查询最近一条地址",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_addr",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -100,9 +99,9 @@
 		"repeat": 1
 	},	
 	{
-		"skip": true,
+		"skip": false,
 		"desc": "提交电子订单",
-		"uri": "http://testapi2.idsuipai.com/lua/app/order_submit.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_submit",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -112,19 +111,21 @@
 			"sign": "35a7c32fea605dd2e9c79e717679df95"
 		},		
 		"body": {
-			"referer_token": "xx",
-			"WeChat_share": "yes",
+			"wxshare": 1,
+			"referer_token": "csdcds",
 			"item_array": [
 			{
-				"item_type": "id_photo_elec",
-				"goods_id": 10000,
+				"item_type": 0,
+				"goods_id": 50000001,
 				"photo_height": 45,
 				"photo_width": 45,
-				"bg_color": "blue",
+				"top_margin": 10,
+				"btm_margin": 10,
+				"beautify_weight": 50,
+				"skin_smooth_weight": 100,					
+				"bg_color": 1,
 				"img_json": {
-					"original": "tmp/original1.jpg",
-					"processed": "tmp/processed1.jpg",
-					"typeset": "tmp/typeset1.jpg"
+					"original": "tmp/original1.jpg"
 				}	
 			}
 			]
@@ -132,9 +133,9 @@
 		"repeat": 1
 	},
 	{
-		"skip": true,
+		"skip": false,
 		"desc": "提交纸质订单",
-		"uri": "http://testapi2.idsuipai.com/lua/app/order_submit.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_submit",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -144,22 +145,26 @@
 			"sign": "35a7c32fea605dd2e9c79e717679df95"
 		},				
 		"body": {
-			"WeChat_share": "yes",
+			"wxshare": 1,
 			"referer_token": "xx",
-			"addr_id": 10007,
-			"urgent_service": "yes",
+			"addr_id": 50000002,
+			"urgent_service": 1,
 			"item_array": [
 			{
-				"item_type": "id_photo_paper",
+				"item_type": 1,
 				"item_cnt": 2,
-				"goods_id": 10000,
+				"goods_id": 50000001,
 				"photo_height": 45,
 				"photo_width": 45,
-				"bg_color": "blue",				
-				"img_json": {"original": "tmp/original.jpg","processed": "tmp/processed.png","typeset": "tmp/typeset.jpg"}	
+				"top_margin": 10,
+				"btm_margin": 10,
+				"beautify_weight": 50,
+				"skin_smooth_weight": 100,					
+				"bg_color": 1,				
+				"img_json": {"original": "tmp/original.jpg"}	
 			},
 			{
-				"item_type": "print_photo",
+				"item_type": 2,
 				"item_cnt": 6,
 				"img_json": [{"img": "tmp/aa.jpg", "cnt": 1}, {"img": "tmp/bb.jpg", "cnt": 2},{"img": "tmp/cc.jpg", "cnt": 3}]
 			}
@@ -169,8 +174,8 @@
 	},
 	{
 		"skip": true,
-		"desc": "查询所有订单",	
-		"uri": "http://testapi2.idsuipai.com/lua/app/get_order.lua",
+		"desc": "分页查询订单",	
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_order",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -178,13 +183,16 @@
 			"platform": 0,
 			"uuid": "testuuid",
 			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},
+		"body": {
+			"last_order_id": 50000009
 		},		
 		"repeat": 1
 	},
 	{
 		"skip": true,
 		"desc": "查询单个订单",
-		"uri": "http://testapi2.idsuipai.com/lua/app/get_order.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_order",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -194,14 +202,14 @@
 			"sign": "35a7c32fea605dd2e9c79e717679df95"
 		},			
 		"body": {
-			"order_id": 100001
+			"order_id": 50000002
 		},
 		"repeat": 1
 	},
 	{
 		"skip": true,
 		"desc": "用户取消订单",
-		"uri": "http://testapi2.idsuipai.com/lua/app/order_cancel.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_cancel",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -211,14 +219,14 @@
 			"sign": "35a7c32fea605dd2e9c79e717679df95"
 		},			
 		"body": {
-			"order_id": 10001
+			"order_id": 50000002
 		},
 		"repeat": 1
 	},	
 	{
 		"skip": true,
 		"desc": "查询快递状态",
-		"uri": "http://testapi2.idsuipai.com/lua/app/express_query.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/express_query",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -235,7 +243,7 @@
 	{
 		"skip": true,
 		"desc": "app文件上传请求",
-		"uri": "http://testapi2.idsuipai.com/lua/app/oss_upload_request.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/oss_upload_request",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -254,7 +262,7 @@
 	{
 		"skip": true,
 		"desc": "文件上传回调",
-		"uri": "http://testapi2.idsuipai.com/lua/open/oss_callback.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/open/oss_callback",
 		"method": "POST",		
 		"body": {"object": "tmp/id_photo_elec_original_0ec1571da2302544e00e8e1422982aa9.jpg"},
 		"repeat": 1
@@ -262,7 +270,7 @@
 	{
 		"skip": true,
 		"desc": "发起订单支付",
-		"uri": "http://testapi2.idsuipai.com/lua/app/order_pay.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_pay",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -272,15 +280,32 @@
 			"sign": "35a7c32fea605dd2e9c79e717679df95"
 		},			
 		"body": {
-			"order_id": 10001,
+			"order_id": 50000001,
 			"pay_type": 0
 		},
 		"repeat": 1
 	},
 	{
 		"skip": true,
+		"desc": "订单退款",
+		"uri": "http://testapi2.idsuipai.com/lua/app/order_refund",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},			
+		"body": {
+			"order_id": 50000001
+		},
+		"repeat": 1
+	},	
+	{
+		"skip": true,
 		"desc": "提交反馈",
-		"uri": "http://testapi2.idsuipai.com/lua/app/feedback.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/app/feedback",
 		"method": "POST",
 		"headers":{
 			"appver": "1.0.1",
@@ -298,7 +323,7 @@
 	{
 		"skip": true,
 		"desc": "管理员登录",
-		"uri": "http://testapi2.idsuipai.com/lua/open/admin_login.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/open/admin_login",
 		"method": "POST",			
 		"body": {
 			"account_name": "ppbb",
@@ -307,12 +332,12 @@
 		"repeat": 1
 	},
 	{
-		"skip": false,
+		"skip": true,
 		"desc": "测试auth-token",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/test.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/test",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
+			"auth-token": "d68c3a26732a5098e2d17293a4f6b876"
 		},		
 		"body": {
 			"account_name": "ppbb",
@@ -323,18 +348,19 @@
 	{
 		"skip": true,
 		"desc": "获取订单",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/get_order.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_order",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "fe08cef1384459420a91749d608d28ca"
+			"auth-token": "204b401833fb1a1f65bcbd4697860f51"
 		},		
 		"body": {
-			"item_type": "id_photo_paper",
-			"urgent_service": "yes",
-			"platform": "ios",
+			"item_type": 1,
+			"urgent_service": 1,
+			"platform": 0,
 			"from_timestamp": "2016-05-06 00:00:00",
-			"to_timestamp": "2016-07-01 23:59:59",
+			"to_timestamp": "2016-07-31 23:59:59",
 			"admin_order_status": "unpaid",
+			"fuzz_query_str": "frank",
 			"start_index": 1,
 			"entries": 20
 		},
@@ -343,7 +369,7 @@
 	{
 		"skip": true,
 		"desc": "获取订单",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/order_fuzz_query.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/order_fuzz_query",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "ac4ce06f7303ad056f6fd904e9afb7ab"
@@ -358,7 +384,7 @@
 	{
 		"skip": true,
 		"desc": "获取用户反馈",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/get_feedback.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_feedback",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
@@ -373,7 +399,7 @@
 	{
 		"skip": true,
 		"desc": "处理用户反馈",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/deal_feedback.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/deal_feedback",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "64ff862219fd44b14a5d09f42baa523f"
@@ -387,7 +413,7 @@
 	{
 		"skip": true,
 		"desc": "获取短信模板",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/get_msg_template.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_msg_template",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "865773c6c59b1290a2477b022523fd27"
@@ -400,7 +426,7 @@
 	{
 		"skip": true,
 		"desc": "设置短信模板",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/set_msg_template.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/set_msg_template",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "22cff18aeb423422a53fe1087b6071cb"
@@ -414,7 +440,7 @@
 	{
 		"skip": true,
 		"desc": "后台发货",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/send_goods.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/send_goods",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "865773c6c59b1290a2477b022523fd27"
@@ -429,7 +455,7 @@
 	{
 		"skip": true,
 		"desc": "发货短信提醒",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/send_goods_msg.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/send_goods_msg",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "22cff18aeb423422a53fe1087b6071cb"
@@ -443,7 +469,7 @@
 	{
 		"skip": true,
 		"desc": "添加订单备注",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/add_order_memo.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/add_order_memo",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "22cff18aeb423422a53fe1087b6071cb"
@@ -457,24 +483,23 @@
 	{
 		"skip": true,
 		"desc": "获取后台管理人员列表",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/get_admin.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_admin",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "22cff18aeb423422a53fe1087b6071cb"
+			"auth-token": "51ff9992c3ffaecbbab91d4d4a494bd9"
 		},		
 		"body": {
-			"admin_status": "normal",
+			"admin_status": 1,
 			"telephone": "18576632036",
 			"start_index": 1,
-			"entries": 20,
-			"admin_id": 10001
+			"entries": 20
 		},
 		"repeat": 1
 	},
 	{
 		"skip": true,
 		"desc": "添加后台管理人员",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/add_admin.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/add_admin",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "22cff18aeb423422a53fe1087b6071cb"
@@ -491,7 +516,7 @@
 	{
 		"skip": true,
 		"desc": "编辑后台管理人员",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/edit_admin.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/edit_admin",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "22cff18aeb423422a53fe1087b6071cb"
@@ -515,7 +540,7 @@
 	{
 		"skip": true,
 		"desc": "删除后台管理人员",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/del_admin.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/del_admin",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "22cff18aeb423422a53fe1087b6071cb"
@@ -528,7 +553,7 @@
 	{
 		"skip": true,
 		"desc": "获取参数配置",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/get_params.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_params",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "5580a396814241ade78aba486a245760"
@@ -542,7 +567,7 @@
 	{
 		"skip": true,
 		"desc": "设置参数配置",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/set_params.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/set_params",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "5580a396814241ade78aba486a245760"
@@ -562,15 +587,15 @@
 	{
 		"skip": true,
 		"desc": "获取商品配置",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/get_goods.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_goods",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "f9a7e6af0e4c41e12a428930e92e135a"
+			"auth-token": "51ff9992c3ffaecbbab91d4d4a494bd9"
 		},		
 		"body": {
 			"goods_category": "各类证件",
-			"avail_status": "yes",
-			"goods_lan":"chn",
+			"avail_status": 1,
+			"goods_lan": 0,
 			"goods_name": "证",
 			"start_index": 1,
 			"entries": 20
@@ -580,14 +605,14 @@
 	{
 		"skip": true,
 		"desc": "添加商品配置",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/add_goods.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/add_goods",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "f9a7e6af0e4c41e12a428930e92e135a"
+			"auth-token": "51ff9992c3ffaecbbab91d4d4a494bd9"
 		},		
 		"body": {
 			"goods_category": "各类证件",
-			"goods_lang":"chn",
+			"goods_lang":0,
 			"chn_name": "结婚证",
 			"orig_elec_price": 699,
 			"sale_elec_price": 690,
@@ -597,24 +622,25 @@
 			"photo_width": 25,
 			"top_margin": 10,
 			"btm_margin": 10,
-			"bg_clr_json": ["blue","red","white","gray"],
-			"cnt_per_typeset": 8
+			"bg_clr_json": [0,1,2,3],
+			"cnt_per_typeset": 8,
+			"avail_status": 1
 		},
 		"repeat": 1
 	},
 	{
 		"skip": true,
 		"desc": "更改商品配置",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/edit_goods.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/edit_goods",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "f9a7e6af0e4c41e12a428930e92e135a"
+			"auth-token": "51ff9992c3ffaecbbab91d4d4a494bd9"
 		},		
 		"body": {
-			"goods_id": 10004,
-			"avail_status": "no",
+			"goods_id": 50000009,
+			"avail_status": 0,
 			"goods_category": "各类证件",
-			"goods_lang":"eng",
+			"goods_lang": 1,
 			"eng_name": "marriage certificate",
 			"orig_elec_price": 699,
 			"sale_elec_price": 690,
@@ -624,18 +650,18 @@
 			"photo_width": 25,
 			"top_margin": 10,
 			"btm_margin": 10,
-			"bg_clr_json": ["blue","red","white","yellow"],
-			"cnt_per_typeset": 8
+			"bg_clr_json": [0,1],
+			"cnt_per_typeset": 6
 		},
 		"repeat": 1
 	},
 	{
 		"skip": true,
 		"desc": "获取首页展示商品",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/get_homepage_goods.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_homepage_goods",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
+			"auth-token": "51ff9992c3ffaecbbab91d4d4a494bd9"
 		},		
 		"body": {
 		},
@@ -644,7 +670,7 @@
 	{
 		"skip": true,
 		"desc": "设置首页展示商品",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/set_homepage_goods.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/set_homepage_goods",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
@@ -659,7 +685,7 @@
 	{
 		"skip": true,
 		"desc": "获取首页展示banner",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/get_homepage_banner.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/get_homepage_banner",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
@@ -671,7 +697,7 @@
 	{
 		"skip": true,
 		"desc": "设置首页展示banner",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/set_homepage_banner.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/set_homepage_banner",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
@@ -686,7 +712,7 @@
 	{
 		"skip": true,
 		"desc": "oss上传图片请求",
-		"uri": "http://testapi2.idsuipai.com/lua/admin/oss_upload_request.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/admin/oss_upload_request",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
@@ -700,7 +726,7 @@
 	{
 		"skip": true,
 		"desc": "oss上传图片请求回调",
-		"uri": "http://testapi2.idsuipai.com/lua/open/oss_upload_callback.lua",
+		"uri": "http://testapi2.idsuipai.com/lua/open/oss_upload_callback",
 		"method": "POST",	
 		"headers":{
 			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
