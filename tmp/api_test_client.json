@@ -45,7 +45,7 @@
 		"repeat": 1
 	},
 	{
-		"skip": true,
+		"skip": false,
 		"desc": "分页查询某一目录下的商品",
 		"uri": "http://testapi2.idsuipai.com/lua/app/get_category_goods",
 		"method": "POST",
@@ -99,7 +99,7 @@
 		"repeat": 1
 	},	
 	{
-		"skip": false,
+		"skip": true,
 		"desc": "提交电子订单",
 		"uri": "http://testapi2.idsuipai.com/lua/app/order_submit",
 		"method": "POST",
@@ -133,7 +133,7 @@
 		"repeat": 1
 	},
 	{
-		"skip": false,
+		"skip": true,
 		"desc": "提交纸质订单",
 		"uri": "http://testapi2.idsuipai.com/lua/app/order_submit",
 		"method": "POST",
@@ -159,7 +159,8 @@
 				"top_margin": 10,
 				"btm_margin": 10,
 				"beautify_weight": 50,
-				"skin_smooth_weight": 100,					
+				"skin_smooth_weight": 100,
+				"rotation": 0,
 				"bg_color": 1,				
 				"img_json": {"original": "tmp/original.jpg"}	
 			},
@@ -172,6 +173,40 @@
 		},
 		"repeat": 1
 	},
+	{
+		"skip": true,
+		"desc": "获取相同地址的未支付订单",
+		"uri": "http://testapi2.idsuipai.com/lua/app/get_addr_orders",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},				
+		"body": {
+			"order_id":  50000025
+		},
+		"repeat": 1
+	},	
+	{
+		"skip": true,
+		"desc": "合并订单",
+		"uri": "http://testapi2.idsuipai.com/lua/app/merge_orders",
+		"method": "POST",
+		"headers":{
+			"appver": "1.0.1",
+			"noncestr": "1234567890123456",
+			"platform": 0,
+			"uuid": "testuuid",
+			"sign": "35a7c32fea605dd2e9c79e717679df95"
+		},				
+		"body": {
+			"order_array": [50000002,50000014,50000016,50000023,50000024,50000025]
+		},
+		"repeat": 1
+	},	
 	{
 		"skip": true,
 		"desc": "分页查询订单",	
@@ -337,7 +372,7 @@
 		"uri": "http://testapi2.idsuipai.com/lua/admin/test",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "d68c3a26732a5098e2d17293a4f6b876"
+			"auth-token": "86ed79a6e6ce70abb8696059a037d3fa"
 		},		
 		"body": {
 			"account_name": "ppbb",
@@ -715,7 +750,7 @@
 		"uri": "http://testapi2.idsuipai.com/lua/admin/oss_upload_request",
 		"method": "POST",	
 		"headers":{
-			"auth-token": "1163e5fa512c44a52e0a33fc1387f724"
+			"auth-token": "love"
 		},		
 		"body": {
 			"img_id": "chn_homepage_goods_6",
